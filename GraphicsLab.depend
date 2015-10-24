@@ -1,0 +1,84 @@
+# depslib dependency file v1.0
+1445684999 source:d:\study\graphics\graphicslab\main.cpp
+	<graphics.h>
+	"menu.h"
+
+1445685504 d:\study\graphics\graphicslab\myfunctions.h
+	<graphics.h>
+	<vector>
+	<utility>
+
+1440139809 source:d:\study\graphics\graphicslab\mycircle.cpp
+	"myfunctions.h"
+
+1440139817 source:d:\study\graphics\graphicslab\myline.cpp
+	"myfunctions.h"
+	<math.h>
+
+1440139937 source:d:\study\graphics\graphicslab\myparabola.cpp
+	"myfunctions.h"
+
+1445684341 source:d:\study\graphics\graphicslab\pendulum.cpp
+	"myfunctions.h"
+	"animations.h"
+	"io.h"
+	<math.h>
+
+1445685111 source:d:\study\graphics\graphicslab\myfunctions.cpp
+	"myfunctions.h"
+	"io.h"
+	<math.h>
+
+1445677218 source:d:\study\graphics\graphicslab\clip.cpp
+	"clip.h"
+	"io.h"
+	<iostream>
+	<math.h>
+	<algorithm>
+
+1445684883 source:d:\study\graphics\graphicslab\2dtransform.cpp
+	"2dtransform.h"
+	"io.h"
+	<iostream>
+
+1445616122 d:\study\graphics\graphicslab\2dtransform.h
+	"myfunctions.h"
+	<graphics.h>
+	<vector>
+	<math.h>
+
+1445600214 d:\study\graphics\graphicslab\clip.h
+	"myfunctions.h"
+
+1445684634 source:d:\study\graphics\graphicslab\menu.cpp
+	"myfunctions.h"
+	"animations.h"
+	"clip.h"
+	"2dtransform.h"
+	"io.h"
+	<math.h>
+	<iostream>
+	<vector>
+
+1445674861 d:\study\graphics\graphicslab\menu.h
+
+1445676207 d:\study\graphics\graphicslab\animations.h
+	"myfunctions.h"
+
+1445677327 d:\study\graphics\graphicslab\io.h
+	"myfunctions.h"
+	<vector>
+
+1445684474 source:d:\study\graphics\graphicslab\io.cpp
+	"io.h"
+	<graphics.h>
+	<iostream>
+	<cstdio>
+	<math.h>
+
+1445685630 source:d:\study\graphics\graphicslab\rotating_t.cpp
+	"animations.h"
+	"myfunctions.h"
+	<math.h>
+	<vector>
+

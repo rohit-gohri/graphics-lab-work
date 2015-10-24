@@ -1,0 +1,43 @@
+int n1 = 5, n2 = 5;
+    std::vector<Point> clipped(n1), subject(n2);
+    setcolor(WHITE);
+    /*std::cout << "Enter number of points for subject\n";
+    while(n1 < 3) {
+        std::cin >> n1;
+        if (n1 < 3)
+            std::cout << "Error, n less than 3\n";
+    }
+
+
+    std::cout << "Enter number of points for clipped polygon\n";
+    while(n2 < 3) {
+        std::cin >> n2;
+        if (n2 < 3)
+            std::cout << "Error, n less than 3\n";
+    }
+    std::cout << "Enter points for polygon(clipping space)\n";
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> poly[i].x >> poly[i].y;
+    }
+    //mypoly(poly, n);
+    */
+
+    clipped[0].x = 30 ; clipped[0].y = 90;
+    clipped[1].x = 150; clipped[1].y = 330;
+    clipped[2].x = 240; clipped[2].y = 210;
+    clipped[3].x = 120; clipped[3].y = 30;
+    clipped[4].x = 150; clipped[4].y = 210;
+
+    subject[0].x = 90 ; subject[0].y = 270;
+    subject[1].x = 180; subject[1].y = 90 ;
+    subject[2].x = 90 ; subject[2].y = 60 ;
+    subject[3].x = 150; subject[3].y = 150;
+    subject[4].x = 90 ; subject[4].y = 180;
+
+    mypoly(clipped);
+
+    setcolor(RED);
+    mypoly(subject);
+
+    clippoly(subject, clipped);
