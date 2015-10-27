@@ -50,7 +50,7 @@ float kbf() {
         c = getch();
         cleardevice();
         if(c >= 48 && c <= 57) {
-            a += a*10 + (c-48);
+            a = a*10 + (c-48);
             snprintf(fc, 10, "%f", a);
             outtext(fc);
         }
