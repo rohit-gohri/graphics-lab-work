@@ -1,12 +1,16 @@
 #include <graphics.h>
 #include "menu.h"
+#include "myfunctions.h"
+#include "curves.h"
+#include "io.h"
+#include "final.h"
+#include <math.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
-using namespace std;
-
-int main()
-{
-    initwindow(1000, 700, "Computer Graphics Lab - 348/CO/13");
-    char c;
+/*int main() {
+char c;
 
     do {
         cleardevice();
@@ -21,8 +25,8 @@ int main()
         outtextxy(10, 165, (char*)"5. Line Clipping in Polygon Window - Cyrus Beck");
         outtextxy(10, 185, (char*)"6. Polygon Clipping in Polygon Window");
         outtextxy(10, 205, (char*)"7. 2D Transformations");
-        outtextxy(10, 225, (char*)"8. 3D Transformations");
-        outtextxy(10, 245, (char*)"9. Curves");
+        outtextxy(10, 225, (char*)"8. skip");
+        outtextxy(10, 245, (char*)"9. para");
         outtextxy(10, 265, (char*)"Esc - EXIT");
 
         c = getch();
@@ -34,9 +38,23 @@ int main()
             case '5': clip_lp_menu(); break;
             case '6': clip_poly_menu(); break;
             case '7': trans_2d_menu(); break;
+            case '8': skipping(); break;
+            case '9': paratraverse(20); break;
             case 27 : break;
             default : outtextxy(10, 285, (char*)"Try again with a valid option");
         }
     }while(c != 27);
+
+    return 0;
+}
+*/
+
+int main() {
+    initwindow(1080, 720, "Practical");
+
+    finalp();
+
+    getch();
     closegraph();
+    return 0;
 }

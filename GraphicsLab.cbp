@@ -27,6 +27,11 @@
 		<Unit filename="animations.h" />
 		<Unit filename="clip.cpp" />
 		<Unit filename="clip.h" />
+		<Unit filename="curves.cpp" />
+		<Unit filename="curves.h" />
+		<Unit filename="final.cpp" />
+		<Unit filename="final.h" />
+		<Unit filename="gandhi.cpp" />
 		<Unit filename="io.cpp" />
 		<Unit filename="io.h" />
 		<Unit filename="main.cpp" />
@@ -36,6 +41,7 @@
 		<Unit filename="myfunctions.h" />
 		<Unit filename="pendulum.cpp" />
 		<Unit filename="rotating_t.cpp" />
+		<Unit filename="skipping.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

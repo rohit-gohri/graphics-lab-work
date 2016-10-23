@@ -82,3 +82,122 @@
 	<math.h>
 	<vector>
 
+1445684883 source:d:\study\graphics\graphics\2dtransform.cpp
+	"2dtransform.h"
+	"io.h"
+	<iostream>
+
+1445616122 d:\study\graphics\graphics\2dtransform.h
+	"myfunctions.h"
+	<graphics.h>
+	<vector>
+	<math.h>
+
+1446495418 d:\study\graphics\graphics\myfunctions.h
+	<graphics.h>
+	<vector>
+	<utility>
+
+1445677327 d:\study\graphics\graphics\io.h
+	"myfunctions.h"
+	<vector>
+
+1445677218 source:d:\study\graphics\graphics\clip.cpp
+	"clip.h"
+	"io.h"
+	<iostream>
+	<math.h>
+	<algorithm>
+
+1445600214 d:\study\graphics\graphics\clip.h
+	"myfunctions.h"
+
+1445684474 source:d:\study\graphics\graphics\io.cpp
+	"io.h"
+	<graphics.h>
+	<iostream>
+	<cstdio>
+	<math.h>
+
+1449032362 source:d:\study\graphics\graphics\main.cpp
+	<graphics.h>
+	"menu.h"
+	"myfunctions.h"
+	"curves.h"
+	"io.h"
+	"final.h"
+	<math.h>
+	<iostream>
+	<algorithm>
+	<vector>
+
+1449032152 d:\study\graphics\graphics\menu.h
+	<graphics.h>
+
+1445684341 source:d:\study\graphics\graphics\pendulum.cpp
+	"myfunctions.h"
+	"animations.h"
+	"io.h"
+	<math.h>
+
+1445676207 d:\study\graphics\graphics\animations.h
+	"myfunctions.h"
+
+1445685773 source:d:\study\graphics\graphics\rotating_t.cpp
+	"animations.h"
+	"myfunctions.h"
+	<math.h>
+	<vector>
+
+1446551121 source:d:\study\graphics\graphics\curves.cpp
+	"myfunctions.h"
+	"curves.h"
+	<math.h>
+	<vector>
+
+1446500618 d:\study\graphics\graphics\curves.h
+
+1446499435 source:d:\study\graphics\graphics\myfunctions.cpp
+	"myfunctions.h"
+	"io.h"
+	<math.h>
+
+1449032373 source:d:\study\graphics\graphics\menu.cpp
+	"myfunctions.h"
+	"animations.h"
+	"clip.h"
+	"2dtransform.h"
+	"curves.h"
+	"io.h"
+	<math.h>
+	<iostream>
+	<algorithm>
+	<vector>
+
+1446496674 source:d:\study\graphics\graphics\skipping.cpp
+
+1449038789 source:d:\study\graphics\graphics\final.cpp
+	<graphics.h>
+	"menu.h"
+	"myfunctions.h"
+	"curves.h"
+	"io.h"
+	<math.h>
+	<iostream>
+	<algorithm>
+	<vector>
+	"final.h"
+
+1449032329 d:\study\graphics\graphics\final.h
+
+1449032144 source:d:\study\graphics\graphics\gandhi.cpp
+	<graphics.h>
+	"menu.h"
+	"myfunctions.h"
+	"curves.h"
+	"io.h"
+	<math.h>
+	<iostream>
+	<algorithm>
+	<vector>
+

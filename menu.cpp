@@ -2,9 +2,11 @@
 #include "animations.h"
 #include "clip.h"
 #include "2dtransform.h"
+#include "curves.h"
 #include "io.h"
 #include <math.h>
 #include <iostream>
+#include <algorithm>
 #include <vector>
 
 int x1, x2, y1, y2;
@@ -31,7 +33,7 @@ void myfunc_menu() {
     outtext((char*)"Click and drag to make a circle and show its radius, RIGHT CLICK TO EXIT");
     do {
         mouseLine(a, b);
-        int r = (int)(sqrt(pow((b.x - a.x), 2) + pow((b.y - a.y), 2)) + 0.5);
+        int r = rnd(sqrt(pow((b.x - a.x), 2) + pow((b.y - a.y), 2)));
         myline(a, b);
         mycircle(a, r);
     }while(!ismouseclick(WM_RBUTTONDOWN));
@@ -154,6 +156,124 @@ void rot_tri_menu() {
     Point2D a, b;
     outtext((char*)"Define center for circle and radius");
     mouseLine(a, b);
-    int l = (int)(sqrt(pow(b.x-a.x, 2) + pow(b.y-a.y, 2)) + 0.5);
+    int l = rnd(sqrt(pow(b.x-a.x, 2) + pow(b.y-a.y, 2)));
     rot_t(a, l);
 }
+
+void curves() {
+    myname();
+}
+
+bool compPoint2D(Point2D a, Point2D b) {
+    return a.x < b.x;
+}
+
+void paratraverse(int r) {
+    cleardevice();
+    std::vector<Point2D> list;
+    parabola(getmaxx()/2, getmaxy(), 16, list, true);
+    std::sort(list.begin(), list.end(), compPoint2D);
+    setcolor(WHITE);
+    float theta = 0;
+    for (auto i = list.begin(); i != list.end(); i+=10, theta+=10) {
+        Point2D t(*i);
+        if (t.y > getmaxy() - r)
+            t.y = t.y - r;
+        else if(i - list.begin() > list.size()/2)
+            t = Point2D(t.x - r, t.y);
+        else
+            t = Point2D(t.x + r, t.y);
+        wheel(t, r, theta);
+        parabola(getmaxx()/2, getmaxy(), 16, list);
+        setcolor(BLACK);
+        delay(100);
+        wheel(t, r, theta);
+        setcolor(WHITE);
+    }
+    getch();
+}
+
+void skipping(int x) {
+    cleardevice();
+    std::vector<Point2D> neck, body, h1, h2, a1, a2, l1, l2, f1, f2;
+
+    neck.push_back(Point2D(x-5, 120)); neck.push_back(Point2D(x-5, 130));
+    neck.push_back(Point2D(x+5, 130)); neck.push_back(Point2D(x+5, 120));
+
+    body.push_back(Point2D(x-40, 130)); body.push_back(Point2D(x+40, 130));
+    body.push_back(Point2D(x+40, 200)); body.push_back(Point2D(x-40, 200));
+
+    h1.push_back(Point2D(x-40, 130)); h1.push_back(Point2D(x-40, 140));
+    h1.push_back(Point2D(x-55, 165)); h1.push_back(Point2D(x-55, 155));
+
+    h2.push_back(Point2D(x+40, 130)); h2.push_back(Point2D(x+40, 140));
+    h2.push_back(Point2D(x+55, 165)); h2.push_back(Point2D(x+55, 155));
+
+    a1.push_back(Point2D(x-75, 140)); a1.push_back(Point2D(x-75, 150));
+    a1.push_back(Point2D(x-55, 165)); a1.push_back(Point2D(x-55, 155));
+
+    a2.push_back(Point2D(x+75, 140)); a2.push_back(Point2D(x+75, 150));
+    a2.push_back(Point2D(x+55, 165)); a2.push_back(Point2D(x+55, 155));
+
+    l1.push_back(Point2D(x-30, 200)); l1.push_back(Point2D(x-30, 260));
+    l1.push_back(Point2D(x-20, 260)); l1.push_back(Point2D(x-20, 200));
+
+    l2.push_back(Point2D(x+30, 200)); l2.push_back(Point2D(x+30, 260));
+    l2.push_back(Point2D(x+20, 260)); l2.push_back(Point2D(x+20, 200));
+
+    f1.push_back(Point2D(x-32, 260)); f1.push_back(Point2D(x-32, 265));
+    f1.push_back(Point2D(x-18, 265)); f1.push_back(Point2D(x-18, 260));
+
+    f2.push_back(Point2D(x+32, 260)); f2.push_back(Point2D(x+32, 265));
+    f2.push_back(Point2D(x+18, 265)); f2.push_back(Point2D(x+18, 260));
+
+    mycircle(x, 100, 20);
+    mypoly(body); mypoly(neck);
+    mypoly(h1); mypoly(h2);
+    mypoly(a1); mypoly(a2);
+    mypoly(l1); mypoly(l2);
+    mypoly(f1); mypoly(f2);
+
+    float y1 = a1[0].y, d = 30/50;
+
+    setfillstyle(SOLID_FILL, RED);
+    floodfill(x, 150, WHITE);
+    int k = 500;
+    bool inc = true;
+    do {
+        setcolor(YELLOW);
+        hermite(a1[0].x, a1[0].y + 5, a2[0].x, a1[0].y + 5, 5, -k, -5, k);
+        setcolor(WHITE);
+        circle(x, 100, 20);
+        mypoly(body); mypoly(neck);
+        mypoly(h1); mypoly(h2);
+        mypoly(a1); mypoly(a2);
+        mypoly(l1); mypoly(l2);
+        mypoly(f1); mypoly(f2);
+
+        delay(100);
+
+        setcolor(BLACK);
+        hermite(a1[0].x, a1[0].y + 5, a2[0].x, a1[0].y + 5, 5, -k, -5, k);
+        if(k <= -500)
+            inc = false;
+        if(inc) {
+            k -= 10;
+            y1 += d;
+            a1[0].y = rnd(y1) ;
+            a1[1].y = rnd(y1) + 10;
+            a2[0].y = rnd(y1) ;
+            a2[1].y = rnd(y1) + 10;
+        }
+        else {
+            k += 10;
+            y1 -= d;
+            a1[0].y = rnd(y1) ;
+            a1[1].y = rnd(y1) + 10;
+            a2[0].y = rnd(y1) ;
+            a2[1].y = rnd(y1) + 10;
+        }
+    }while(k != 500);
+    getch();
+}
+

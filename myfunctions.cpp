@@ -98,12 +98,28 @@ void mypoly(std::vector<std::vector<int> > poly) {
     myline(poly[n][0], poly[n][1], poly[0][0], poly[0][1]);
 }
 
-void parabola(int x1, int y1, int a, int x, int y ) {
-    int p, c = getcolor();
+void wheel(Point2D a, int r, float theta) {
+    circle(a.x, a.y, r);
+    float d = 3.14159 / 180;
+    int s1 = rnd(r * sin(theta * d)), c1 = rnd(r * cos(theta * d)),
+        s2 = rnd(r * sin((theta - 45) * d)), c2 = rnd(r * cos((theta - 45) * d));
+
+    myline(Point2D(a.x - c1, a.y - s1), Point2D(a.x + c1, a.y + s1));
+    myline(Point2D(a.x + s1, a.y - c1), Point2D(a.x - s1, a.y + c1));
+    myline(Point2D(a.x - c2, a.y - s2), Point2D(a.x + c2, a.y + s2));
+    myline(Point2D(a.x + s2, a.y - c2), Point2D(a.x - s2, a.y + c2));
+}
+
+void parabola(int x1, int y1, int a, std::vector<Point2D> &list, bool t) {
+    int x = 0, y = 0, p, c = getcolor();
     p = 1 - (2 * a);
     int a4 = 4 * a;
     do {
         putpixel(x1 + x, y1 - y, c);
+        if (t) {
+            list.push_back(Point2D(x1+x, y1-y));
+            list.push_back(Point2D(x1-x, y1-y));
+        }
         putpixel(x1 - x, y1 - y, c);
         if (p > a4) {
             if (p < 0) {
@@ -125,6 +141,35 @@ void parabola(int x1, int y1, int a, int x, int y ) {
     } while ( y1 > y);
 }
 
+void myellipse(int x1, int y1, int a, int b) {
+
+}
+
 void floodfill(Point2D c, int b) {
     floodfill(c.x, c.y, b);
+}
+
+void mypoly(std::vector<Point3D> poly, int plane) {
+    std::vector<Point2D> projection;
+    switch(plane) {
+        // xy plane
+        case 1 :
+            for (int i = 0; i < poly.size(); i++) {
+                projection.push_back(Point2D(rnd(poly[i].x), rnd(poly[i].y)));
+            }
+            mypoly(projection);
+            break;
+        case 2 : // yz plane
+            for (int i = 0; i < poly.size(); i++) {
+                projection.push_back(Point2D(rnd(poly[i].z), rnd(poly[i].y)));
+            }
+            mypoly(projection);
+            break;
+        case 3 : // xz plane
+            for (int i = 0; i < poly.size(); i++) {
+                projection.push_back(Point2D(rnd(poly[i].x), rnd(poly[i].z)));
+            }
+            mypoly(projection);
+            break;
+    }
 }
